@@ -9,10 +9,10 @@
 </head>
 <body class="bg-light">
     <div class="container mt-5">
-
+        
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="text-primary fw-bold">My To-Do List 📝</h1>
-            <div>
+    <h1 class="text-primary fw-bold">My To-Do List 📝</h1>
+    <div>
                 <span class="me-3 text-muted">Hi, {{ request.user.username }} 👋</span>
                 <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Logout</a>
             </div>
@@ -20,7 +20,7 @@
 
         <div class="card shadow">
             <div class="card-body">
-        
+                <h1 class="card-title text-center mb-4">To-Do List 📝</h1>
 
                 <form method="POST" class="row g-3 mb-4">
                     {% csrf_token %}
