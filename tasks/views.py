@@ -23,3 +23,15 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'register.html', {'form': form})
+@login_required
+def delete_task(request, task_id):
+    task = Task.objects.get(id=task_id, user=request.user)
+    task.delete()
+    return redirect('home')
+
+@login_required  
+def complete_task(request, id):
+    task = Task.objects.get(id=id, user=request.user)
+    task.completed = True
+    task.save()
+    return redirect('home')
