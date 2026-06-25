@@ -82,7 +82,16 @@ DATABASES = {
         conn_max_age=600
     )
 }
+} # idi line 84
 
+# TEMP DEBUG - DATABASE CHECK
+import os, sys
+print("=== DATABASE CHECK ===", file=sys.stderr)
+print(f"DATABASE_URL exists: {bool(os.environ.get('DATABASE_URL'))}", file=sys.stderr)
+print(f"DB ENGINE: {DATABASES['default']['ENGINE']}", file=sys.stderr)
+print("=== END CHECK ===", file=sys.stderr)
+
+# Password validation
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
