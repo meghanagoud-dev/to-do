@@ -3,16 +3,20 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .models import Task
 
-@login_required
+
 def home(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         due_date = request.POST.get('due_date')
-        if title:
+        if title and request.user.is_authenticated:
             Task.objects.create(user=request.user, title=title, due_date=due_date if due_date else None)
         return redirect('home')
     
+    if request.user.is_authenticated:
     tasks = Task.objects.filter(user=request.user).order_by('-id')
+else:
+    tasks = []
+
     return render(request, 'home.html', {'tasks': tasks})
 def register(request):
     if request.method == 'POST':
