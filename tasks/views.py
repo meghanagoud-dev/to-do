@@ -13,11 +13,12 @@ def home(request):
         return redirect('home')
     
     if request.user.is_authenticated:
-    tasks = Task.objects.filter(user=request.user).order_by('-id')
-else:
-    tasks = []
-
+        tasks = Task.objects.filter(user=request.user).order_by('-id')
+    else:
+        tasks = []
+        
     return render(request, 'home.html', {'tasks': tasks})
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
