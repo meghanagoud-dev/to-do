@@ -14,7 +14,10 @@
     <h1 class="text-primary fw-bold">My To-Do List 📝</h1>
     <div>
                 <span class="me-3 text-muted">Hi, {{ request.user.username }} 👋</span>
-                <a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Logout</a>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                       {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+</form>
             </div>
         </div>
 
