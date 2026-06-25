@@ -14,7 +14,15 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+# --- PLAN B: NUKE DB CODE START ---
+import sqlite3
+if os.environ.get('RESET_DB') == 'true':
+    db_path = BASE_DIR / 'db.sqlite3'
+    if os.path.exists(db_path):
+        os.remove(db_path)
+# --- PLAN B: NUKE DB CODE END ---
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
