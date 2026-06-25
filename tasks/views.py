@@ -17,7 +17,7 @@ def home(request):
     else:
         tasks = []
         
-    return render(request, 'tasks/home.html', {'tasks': tasks})
+    return render(request, 'home.html', {'tasks': tasks})
 
 def register(request):
     if request.method == 'POST':
