@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse  
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from .models import Task
@@ -42,6 +44,7 @@ def complete_task(request, id):
     task.completed = True
     task.save()
     return redirect('home')
+
 def create_admin(request):
     from django.contrib.auth.models import User
     User.objects.filter(username='mawa').delete()
