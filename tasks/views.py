@@ -46,7 +46,6 @@ def complete_task(request, id):
     return redirect('home')
 
 def create_admin(request):
-    from django.contrib.auth.models import User
     User.objects.filter(username='mawa').delete()
     User.objects.create_superuser('mawa', 'mawa@gmail.com', 'Mawa@1234')
     return HttpResponse("DONE Mawa! Username: mawa | Password: Mawa@1234")
