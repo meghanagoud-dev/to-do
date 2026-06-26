@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)%(73f4%y=u##^ed#=@+8qy76i8)h5e^*)k)+9yhi9ogyf52t3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*','to-do-epff.onrender.com']
 
@@ -82,7 +82,6 @@ DATABASES = {
         conn_max_age=600
     )
 }
-} # idi line 84
 
 # TEMP DEBUG - DATABASE CHECK
 import os, sys
