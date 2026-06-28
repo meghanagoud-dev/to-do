@@ -5,5 +5,5 @@ pip install -r requirements.txt
 python manage.py collectstatic --no-input
 python manage.py migrate
 
-# Auto create superuser 'mawa' if not exists
-python manage.py createsuperuser --noinput || true
+# Superuser auto create - username env nundi teeskuntadi
+python manage.py createsuperuser --noinput || echo "Superuser already exists, skipping."
