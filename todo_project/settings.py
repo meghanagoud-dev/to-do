@@ -132,3 +132,17 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = 'login'
+
+# === RENDER 500 ERROR FIX ===
+import os
+
+# 1. CSRF Fix - Admin login 500 solve chestadi
+CSRF_TRUSTED_ORIGINS = []
+CSRF_ORIGIN = os.environ.get('CSRF_TRUSTED_ORIGINS')
+if CSRF_ORIGIN:
+    CSRF_TRUSTED_ORIGINS.append(CSRF_ORIGIN)
+
+# 2. ALLOWED_HOSTS Fix - Render URL add chestadi
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
