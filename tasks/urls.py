@@ -1,6 +1,12 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
+from django.contrib.auth.models import User
+
+# Auto create superuser - login ayyaka ee 3 lines delete cheyyali
+if not User.objects.filter(username='meghana').exists():
+    User.objects.create_superuser('meghana', 'meghana@gmail.com', 'meghana123')
+
 
 urlpatterns = [
     path('', views.home, name='home'),
